@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"encoding/json"
+	
 	"github.com/astaxie/beego"
 )
 
@@ -29,3 +31,18 @@ func (this *BaseController) ResponseJson(isSuccess bool, msg string, data ...int
 	this.StopRun()
 }
 
+// response info to client
+type ResponseInfo struct {
+	Status	int			`json:"status"`
+	Msg		string		`json:"msg"`
+	Other	string		`json:"extra"`
+}
+
+// encoding response info to json format
+func JsonInfo(info ResponseInfo) string {
+	result, err := json.Marshal(info)
+	if err != nil {
+		panic(err.Error())
+	}
+	return result
+}
