@@ -39,7 +39,7 @@ type ResponseInfo struct {
 }
 
 // encoding response info to json format
-func JsonInfo(info ResponseInfo) string {
+func JsonInfo(info ResponseInfo) []byte {
 	result, err := json.Marshal(info)
 	if err != nil {
 		panic(err.Error())

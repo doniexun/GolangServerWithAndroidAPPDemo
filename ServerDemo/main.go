@@ -15,7 +15,7 @@ func init() {
 	orm.RegisterDriver("mysql", orm.DRMySQL)
 	
 	// 连接 MySQL 数据库
-	orm.RegisterDataBase("default", "mysql", "root:qrs123456@tcp(127.0.0.1:3306)/test?charset=utf8", 30)
+	orm.RegisterDataBase("default", "mysql", "root:123456@tcp(127.0.0.1:3306)/test?charset=utf8", 30)
 	
 	// 注册 model
 	orm.RegisterModel(new(models.User))
